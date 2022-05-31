@@ -22,7 +22,7 @@ defineProps({
 }
 /deep/ .el-color-picker__trigger {
   border: none;
-  width: 200px;
+  width: 230px;
   .el-color-picker__color {
     border-radius: 0;
   }

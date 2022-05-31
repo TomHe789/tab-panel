@@ -1,8 +1,8 @@
 <template>
   <div class="setting-item">
     <div class="item-name">{{ name }}</div>
-    <el-slider v-model="value" :max="maxValue" />
-    <div class="item-data">{{ value }}</div>
+    <el-slider v-model="value" :max="maxValue" show-input />
+    <!-- <div class="item-data">{{ value }}</div> -->
   </div>
 </template>
 
@@ -24,7 +24,6 @@ defineProps({
   padding: 5px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   .el-slider {
-    width: 38%;
     /deep/ .el-slider__runway {
       height: 100%;
       background-color: rgb(48, 48, 48);
@@ -34,21 +33,29 @@ defineProps({
         border-radius: 0;
       }
     }
+    /deep/ .el-input-number {
+      width: 50px;
+      .el-input__wrapper {
+        padding: 0;
+      }
+    }
     /deep/ .el-slider__button-wrapper {
       display: none;
     }
+    /deep/ span {
+      display: none;
+    }
+    /deep/ .show-input {
+      margin-right: 5px;
+    }
+    /deep/ .el-input__inner {
+      background-color: rgb(48, 48, 48);
+      color: #409eff;
+    }
   }
   .item-name {
-    width: 80px;
-    padding-left: 5px;
-  }
-  .item-data {
-    width: 80px;
-    height: 32px;
-    line-height: 32px;
-    text-align: center;
-    background-color: rgb(48, 48, 48);
-    color: #409eff;
+    width: 140px;
+    padding-left: 15px;
   }
 }
 </style>

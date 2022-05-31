@@ -18,7 +18,9 @@
           :maxValue="1000"
         ></slider-item>
       </div>
-      
+      <div class="setting-item">
+        
+      </div>
     </template>
   </panel-item-wrapper>
 </template>
