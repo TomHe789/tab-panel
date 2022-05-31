@@ -1,10 +1,10 @@
 <template>
   <div class="panel-item">
     <div class="panel-top">
-      <i
+      <div
         :class="['arrow', show ? 'arrow-bottom' : 'arrow-right'].join(' ')"
         @click="show = !show"
-      ></i>
+      ></div>
       <span class="panel-title">{{ panelTitle }}</span>
     </div>
     <el-collapse-transition>
@@ -29,7 +29,6 @@ const show = ref(true)
 
 <style lang="less" scoped>
 .panel-item {
-  background-color: #000;
   color: #fff;
   font-size: 14px;
   font-weight: 300;
@@ -53,13 +52,15 @@ const show = ref(true)
   border-color: transparent;
   position: relative;
   left: 5px;
+  display: inline-block;
 }
 .arrow-bottom {
   border-top-color: #fff;
-  top: 12px;
+  top: 4px;
 }
 .arrow-right {
   border-left-color: #fff;
-  top: -14px;
+  top: 0px;
+  left: 8px;
 }
 </style>

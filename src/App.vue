@@ -1,9 +1,11 @@
 <script setup>
+import TopPanel from './components/TopPanel.vue'
 import TabPanel from './components/TabPanel.vue'
 </script>
 
 <template>
-  <TabPanel msg="Hello Vue 3 + Vite" />
+  <TopPanel/>
+  <TabPanel/>
 </template>
 
 <style>

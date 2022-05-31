@@ -13,9 +13,9 @@
 
 <script setup>
 import { ref } from 'vue'
-import PanelItemWrapper from './PanelItemWrapper.vue'
-import ColorPickerItem from './ColorPickerItem.vue'
-import SliderItem from './SliderItem.vue'
+import PanelItemWrapper from './../components/PanelItemWrapper.vue'
+import ColorPickerItem from './../components/ColorPickerItem.vue'
+import SliderItem from './../components/SliderItem.vue'
 </script>
 
 <style lang="less" scoped></style>

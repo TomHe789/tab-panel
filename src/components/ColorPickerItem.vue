@@ -15,9 +15,10 @@ defineProps({
 <style lang="less" scoped>
 .color-picker {
   border-bottom: 1px solid rgba(255, 255, 255, 0.4);
-  display: flex;
-  align-items: center;
-  justify-content: space-around;
+  padding-left: 15px;
+  span{
+    margin-right: 17px;
+  }
 }
 /deep/ .el-color-picker__trigger {
   border: none;

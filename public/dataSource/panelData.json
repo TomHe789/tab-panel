@@ -1,0 +1,42 @@
+[
+  {
+    "name": "seneConfiguration"
+  },
+  {
+    "name": "controlConfiguration"
+  },
+  {
+    "name": "enviromentLight"
+  },
+  {
+    "name": "modelParameter"
+  },
+  {
+    "name": "materialSelect",
+    "optionData": [
+      {
+        "option1": {
+          "color": "#aff",
+          "slide": {
+            "value": 6,
+            "maxValue": 50
+          }
+        },
+        "option2": {
+          "color": "#aaf",
+          "slide": {
+            "value": 90,
+            "maxValue": 200
+          }
+        },
+        "option3": {
+          "color": "#cca",
+          "slide": {
+            "value": 20,
+            "maxValue": 500
+          }
+        }
+      }
+    ]
+  }
+]

@@ -3,7 +3,7 @@
     <template #panelBottom>
       <div class="data-setting">
         <slider-item
-          name="autoRotateSp.."
+          name="autoRotate"
           :value="1"
           :maxValue="2"
         ></slider-item>
@@ -25,9 +25,8 @@
 
 <script setup>
 import { ref } from 'vue'
-import PanelItemWrapper from './PanelItemWrapper.vue'
-import ColorPickerItem from './ColorPickerItem.vue'
-import SliderItem from './SliderItem.vue'
+import PanelItemWrapper from './../components/PanelItemWrapper.vue'
+import SliderItem from './../components/SliderItem.vue'
 </script>
 
 <style lang="less" scoped></style>

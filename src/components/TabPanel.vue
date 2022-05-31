@@ -1,6 +1,6 @@
 <template>
   <div class="left-panel">
-    <el-menu default-active="1" @select="handleSelect">
+    <el-menu default-active="2" @select="handleSelect">
       <el-menu-item index="1">
         <el-icon><Setting /></el-icon>
         <span>配置参数</span>
@@ -29,33 +29,59 @@
   </div>
   <div class="right-panel">
     <!-- 场景配置 -->
-    <sene-configuration />
+    <sene-configuration v-show="selectIndex == 2" />
     <!-- 控制配置 -->
-    <control-configuration />
+    <control-configuration v-show="selectIndex == 3" />
     <!-- 环境光 -->
-    <enviroment-light />
+    <enviroment-light v-show="selectIndex == 4" />
+    <!-- 材质选择 -->
+    <material-select v-show="selectIndex == 5" />
     <!-- 模型参数 -->
-    <model-parameter />
+    <model-parameter v-show="selectIndex == 6" />
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted, provide, computed, reactive } from 'vue'
 import { Setting } from '@element-plus/icons-vue'
-import SeneConfiguration from './SceneConfiguration.vue'
-import ModelParameter from './ModelParameter.vue'
-import EnviromentLight from './EnviromentLight.vue'
-import ControlConfiguration from './ControlConfiguration.vue'
+import axios from 'axios'
+import SeneConfiguration from './../panel/SceneConfiguration.vue'
+import ModelParameter from './../panel/ModelParameter.vue'
+import EnviromentLight from './../panel/EnviromentLight.vue'
+import ControlConfiguration from './../panel/ControlConfiguration.vue'
+import MaterialSelect from '../panel/MaterialSelect.vue'
+
+const selectIndex = ref(2)
+// const panelData = ref([])
+let panelData = ref([])
 
 defineProps({
-  msg: String,
+  // msg: String,
 })
 
-const count = ref(0)
-
 const handleSelect = (key, keyPath) => {
-  console.log(key, keyPath)
+  console.log(key)
+  selectIndex.value = key
 }
+
+// 读取本地json数据
+const getPanelData = () => {
+  axios.get('/dataSource/panelData.json').then(res => {
+    if (res.status === 200) {
+      panelData = res.data
+    }
+  })
+}
+
+// provide('panelData', panelData)
+
+// axios.get('/dataSource/panelData.json').then(res => {
+//     if (res.status === 200) {
+//       panelData.value = res.data
+//     }
+//   })
+
+// onMounted(getPanelData)
 </script>
 
 <style lang="less" scoped>
@@ -79,8 +105,9 @@ const handleSelect = (key, keyPath) => {
   }
 }
 .right-panel {
-  width: 300px;
+  width: 350px;
   height: 100vh;
+  padding-top: 75px;
   position: fixed;
   right: 0;
   top: 0;
