@@ -52,36 +52,21 @@ import ControlConfiguration from './../panel/ControlConfiguration.vue'
 import MaterialSelect from '../panel/MaterialSelect.vue'
 
 const selectIndex = ref(2)
-// const panelData = ref([])
-let panelData = ref([])
-
-defineProps({
-  // msg: String,
-})
+const result = ref(null)
 
 const handleSelect = (key, keyPath) => {
   console.log(key)
   selectIndex.value = key
 }
 
+// provide('panelData', result)
+
 // 读取本地json数据
-const getPanelData = () => {
-  axios.get('/dataSource/panelData.json').then(res => {
-    if (res.status === 200) {
-      panelData = res.data
-    }
-  })
-}
-
-// provide('panelData', panelData)
-
 // axios.get('/dataSource/panelData.json').then(res => {
-//     if (res.status === 200) {
-//       panelData.value = res.data
-//     }
-//   })
-
-// onMounted(getPanelData)
+//   if (res.status === 200) {
+//     result.value = res.data
+//   }
+// })
 </script>
 
 <style lang="less" scoped>
@@ -93,7 +78,8 @@ const getPanelData = () => {
   }
   .el-menu-item {
     transition: none;
-    &:hover {
+    &:hover,
+    &:focus {
       background-color: rgb(149, 161, 177);
     }
   }

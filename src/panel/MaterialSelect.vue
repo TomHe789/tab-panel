@@ -5,67 +5,70 @@
         <div class="data-setting">
           <div class="setting-item">
             <div class="item-name">Material</div>
-            <el-select v-model="value" placeholder="Select" size="small">
+            <el-select v-model="selectValue" placeholder="Select" size="small">
               <el-option
-                v-for="item in options"
+                v-for="(item, index) in panelData.optionData"
                 :key="item.value"
                 :label="item.label"
                 :value="item.value"
+                @click="clickHandle(index)"
               />
             </el-select>
           </div>
         </div>
       </template>
     </panel-item-wrapper>
-    <panel-item-wrapper :panelTitle="value">
-      <template #panelBottom>
-        <color-picker-item color="#409EFF" />
-        <div class="data-setting">
-          <slider-item name="x" :value="150" :maxValue="300"></slider-item>
-          <slider-item name="y" :value="60" :maxValue="300"></slider-item>
-          <slider-item name="z" :value="100" :maxValue="300"></slider-item>
-        </div>
-      </template>
-    </panel-item-wrapper>
+    <template v-if="selectValue">
+      <panel-item-wrapper :panelTitle="selectValue">
+        <template #panelBottom>
+          <color-picker-item
+            :color="panelData.optionData[selectIndex].detailData.color"
+          />
+          <div class="data-setting">
+            <slider-item
+              name="x"
+              :value="panelData.optionData[selectIndex].detailData.slideX"
+              :maxValue="panelData.optionData[selectIndex].detailData.maxValue"
+            ></slider-item>
+            <slider-item
+              name="y"
+              :value="panelData.optionData[selectIndex].detailData.slideY"
+              :maxValue="panelData.optionData[selectIndex].detailData.maxValue"
+            ></slider-item>
+            <slider-item
+              name="z"
+              :value="panelData.optionData[selectIndex].detailData.slideZ"
+              :maxValue="panelData.optionData[selectIndex].detailData.maxValue"
+            ></slider-item>
+          </div>
+        </template>
+      </panel-item-wrapper>
+    </template>
   </Fragment>
 </template>
 
 <script setup>
-import { ref, inject, onMounted, toRef } from 'vue'
+import { ref, inject, onMounted, reactive } from 'vue'
 import PanelItemWrapper from './../components/PanelItemWrapper.vue'
 import ColorPickerItem from './../components/ColorPickerItem.vue'
 import SliderItem from './../components/SliderItem.vue'
+import axios from 'axios'
 
-const value = ref('')
+const selectValue = ref('')
 
-const options = [
-  {
-    value: 'Option1',
-    label: 'Option1',
-  },
-  {
-    value: 'Option2',
-    label: 'Option2',
-  },
-  {
-    value: 'Option3',
-    label: 'Option3',
-  },
-  {
-    value: 'Option4',
-    label: 'Option4',
-  },
-  {
-    value: 'Option5',
-    label: 'Option5',
-  },
-]
+const selectIndex = ref(-1)
 
-// const panelData = inject('panelData')
+const panelData = ref({})
 
-// onMounted(() => {
-//   console.log('123123123',  panelData, panelData.value)
-// })
+const clickHandle = index => {
+  selectIndex.value = index
+}
+
+axios.get('/dataSource/panelData.json').then(res => {
+  if (res.status === 200) {
+    panelData.value = res.data.materialSelect
+  }
+})
 </script>
 
 <style lang="less" scoped>

@@ -1,42 +1,64 @@
-[
-  {
-    "name": "seneConfiguration"
+{
+  "seneConfiguration": {
+    "color": "#409EFF",
+    "slideX": 150,
+    "slideY": 60,
+    "slideZ": 100,
+    "maxValue": 300
   },
-  {
-    "name": "controlConfiguration"
+  "controlConfiguration": {
+    "slieAutoRotate": 500,
+    "slideMinDistance": 50,
+    "slideMaxDistance": 50,
+    "maxValue": 1000,
+    "isChecked": true
   },
-  {
-    "name": "enviromentLight"
+  "enviromentLight": {
+    "color": "#faafaf",
+    "slideIntensity": 1,
+    "maxValue": 5
   },
-  {
-    "name": "modelParameter"
+  "modelParameter": {
+    "slideX": 1,
+    "slideY": 2,
+    "slideZ": 1,
+    "maxValue": 5
   },
-  {
-    "name": "materialSelect",
+  "materialSelect": {
     "optionData": [
       {
-        "option1": {
+        "value": "option1",
+        "label": "option1",
+        "detailData": {
+          "color": "#409EFF",
+          "slideX": 1,
+          "slideY": 2,
+          "slideZ": 1,
+          "maxValue": 15
+        }
+      },
+      {
+        "value": "option2",
+        "label": "option2",
+        "detailData": {
           "color": "#aff",
-          "slide": {
-            "value": 6,
-            "maxValue": 50
-          }
-        },
-        "option2": {
-          "color": "#aaf",
-          "slide": {
-            "value": 90,
-            "maxValue": 200
-          }
-        },
-        "option3": {
-          "color": "#cca",
-          "slide": {
-            "value": 20,
-            "maxValue": 500
-          }
+          "slideX": 15,
+          "slideY": 20,
+          "slideZ": 15,
+          "maxValue": 50
+        }
+      },
+      {
+        "value": "option3",
+        "label": "option3",
+        "detailData": {
+          "color": "#faa",
+          "slideX": 11,
+          "slideY": 25,
+          "slideZ": 41,
+          "maxValue": 100
         }
       }
     ]
   }
-]
+}
