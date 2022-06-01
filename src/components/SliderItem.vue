@@ -24,7 +24,7 @@ defineProps({
   padding: 5px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.4);
   .el-slider {
-    /deep/ .el-slider__runway {
+     :deep(.el-slider__runway) {
       height: 100%;
       background-color: rgb(48, 48, 48);
       border-radius: 0;
@@ -33,22 +33,22 @@ defineProps({
         border-radius: 0;
       }
     }
-    /deep/ .el-input-number {
+     :deep(.el-input-number) {
       width: 50px;
       .el-input__wrapper {
         padding: 0;
       }
     }
-    /deep/ .el-slider__button-wrapper {
+     :deep(.el-slider__button-wrapper) {
       display: none;
     }
-    /deep/ span {
+     :deep(span) {
       display: none;
     }
-    /deep/ .show-input {
+     :deep(.show-input) {
       margin-right: 5px;
     }
-    /deep/ .el-input__inner {
+     :deep(.el-input__inner) {
       background-color: rgb(48, 48, 48);
       color: #409eff;
     }

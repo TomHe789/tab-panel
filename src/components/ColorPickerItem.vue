@@ -52,7 +52,7 @@ const formattColorStr = str => {
     top: 8px;
   }
 }
-/deep/ .el-color-picker__trigger {
+:deep(.el-color-picker__trigger) {
   border: none;
   width: 230px;
   .el-color-picker__color {
