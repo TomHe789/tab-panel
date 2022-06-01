@@ -16,7 +16,16 @@
   "enviromentLight": {
     "color": "#faafaf",
     "slideIntensity": 1,
-    "maxValue": 5
+    "maxValue": 5,
+    "isVisible": true,
+    "isCastShadow": false
+  },
+  "lightFront": {
+    "color": "#409EFF",
+    "slideIntensity": 1,
+    "maxValue": 5,
+    "isVisible": true,
+    "isCastShadow": false
   },
   "modelParameter": {
     "slideX": 1,

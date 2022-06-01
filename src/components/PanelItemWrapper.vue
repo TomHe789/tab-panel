@@ -32,6 +32,7 @@ const show = ref(true)
   color: #fff;
   font-size: 14px;
   font-weight: 300;
+  margin-bottom: 20px;
   .panel-top {
     height: 30px;
     line-height: 30px;

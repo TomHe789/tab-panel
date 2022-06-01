@@ -34,6 +34,7 @@
     <control-configuration v-show="selectIndex == 3" />
     <!-- 环境光 -->
     <enviroment-light v-show="selectIndex == 4" />
+    <light-front v-show="selectIndex == 4" />
     <!-- 材质选择 -->
     <material-select v-show="selectIndex == 5" />
     <!-- 模型参数 -->
@@ -48,6 +49,7 @@ import axios from 'axios'
 import SeneConfiguration from './../panel/SceneConfiguration.vue'
 import ModelParameter from './../panel/ModelParameter.vue'
 import EnviromentLight from './../panel/EnviromentLight.vue'
+import LightFront from './../panel/LightFront.vue'
 import ControlConfiguration from './../panel/ControlConfiguration.vue'
 import MaterialSelect from '../panel/MaterialSelect.vue'
 

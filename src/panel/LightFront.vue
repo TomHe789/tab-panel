@@ -1,5 +1,5 @@
 <template>
-  <panel-item-wrapper panelTitle="环境光">
+  <panel-item-wrapper panelTitle="LightFront">
     <template #panelBottom>
       <div class="data-setting">
         <slider-item
@@ -9,6 +9,14 @@
         ></slider-item>
       </div>
       <color-picker-item :color="panelData.color" />
+      <div class="setting-item">
+        <div class="item-name">visible</div>
+        <input type="checkbox" :checked="panelData.isVisible" />
+      </div>
+      <div class="setting-item">
+        <div class="item-name">castShadow</div>
+        <input type="checkbox" :checked="panelData.isCastShadow" />
+      </div>
     </template>
   </panel-item-wrapper>
 </template>
@@ -25,7 +33,7 @@ const panelData = ref({})
 
 axios.get('/dataSource/panelData.json').then(res => {
   if (res.status === 200) {
-    panelData.value = res.data.enviromentLight
+    panelData.value = res.data.lightFront
   }
 })
 </script>
